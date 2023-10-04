@@ -69,27 +69,21 @@ function App() {
   }
 
   useEffect(() => {
-    checkToken();
-  }, [checkToken]);
-
-  
-  function checkToken() {
     const token = localStorage.getItem('token');
     if (token) {
       auth
         .checkToken(token)
         .then((res) => {
-          if (res && res.data) {
-            setLoggedIn(true);
-            navigate("/");
-            setHeaderEmail(res.data.email);
-          }
+          setLoggedIn(true);
+          navigate("/");
+          setHeaderEmail(res.email);
         })
-        .catch((err) => console.log(err));
-    } else {
-      setLoggedIn(false);
+        .catch((err) => {
+          localStorage.removeItem('token');
+          console.log(err)
+        });
     }
-  }
+  }, [navigate]);
 
   function handleLogin(data) {
     auth
