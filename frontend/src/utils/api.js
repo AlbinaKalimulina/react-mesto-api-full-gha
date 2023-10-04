@@ -34,7 +34,7 @@ class Api {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
               },
             body: JSON.stringify({
-                name: data.name,
+                name: data.username,
                 about: data.description,
             })
         })

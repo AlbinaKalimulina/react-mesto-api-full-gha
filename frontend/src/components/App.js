@@ -52,11 +52,11 @@ function App() {
   }, [loggedIn])
 
 
-  function handleRegister(data) {
+  function handleRegister(email, password) {
     auth
-      .register(data)
+      .register(email, password)
       .then((res) => {
-        if (res && res.data) {
+        if (res) {
           setIsInfoTooltipSuccess(true);
           navigate("/sign-in");
         }

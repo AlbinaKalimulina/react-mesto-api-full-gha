@@ -82,14 +82,6 @@ module.exports.editUserProfile = (req, res, next) => {
     });
 };
 
-// module.exports.editUserProfile = (req, res, next) => {
-//   const { user: { _id }, body } = req;
-//   User.findByIdAndUpdate(_id, body, { new: true, runValidators: true })
-//     .orFail(() => new NotFoundError('Пользователь не найден'))
-//     .then((user) => res.send(user))
-//     .catch(next);
-// };
-
 module.exports.editUserAvatar = (req, res, next) => {
   const { avatar } = req.body;
   User.findByIdAndUpdate(req.user._id, { avatar }, { new: true, runValidators: true })
