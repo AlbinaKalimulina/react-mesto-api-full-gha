@@ -66,29 +66,29 @@ module.exports.getUserById = (req, res, next) => {
     });
 };
 
-module.exports.editUserProfile = (req, res, next) => {
-  const { name, about } = req.body;
-  User.findByIdAndUpdate(req.user._id, { name, about }, { new: true, runValidators: true })
-    .orFail()
-    .then((user) => res.send(user))
-    .catch((err) => {
-      if (err instanceof mongoose.Error.ValidationError) {
-        next(new BadRequestError('Некорректные данные'));
-      } else if (err instanceof mongoose.Error.DocumentNotFoundError) {
-        next(new NotFoundError('Пользователь не найден'));
-      } else {
-        next(err);
-      }
-    });
-};
-
 // module.exports.editUserProfile = (req, res, next) => {
-//   const { user: { _id }, body } = req;
-//   User.findByIdAndUpdate(_id, body, { new: true, runValidators: true })
-//     .orFail(() => new NotFoundError('Пользователь не найден'))
+//   const { name, about } = req.body;
+//   User.findByIdAndUpdate(req.user._id, { name, about }, { new: true, runValidators: true })
+//     .orFail()
 //     .then((user) => res.send(user))
-//     .catch(next);
+//     .catch((err) => {
+//       if (err instanceof mongoose.Error.ValidationError) {
+//         next(new BadRequestError('Некорректные данные'));
+//       } else if (err instanceof mongoose.Error.DocumentNotFoundError) {
+//         next(new NotFoundError('Пользователь не найден'));
+//       } else {
+//         next(err);
+//       }
+//     });
 // };
+
+module.exports.editUserProfile = (req, res, next) => {
+  const { user: { _id }, body } = req;
+  User.findByIdAndUpdate(_id, body, { new: true, runValidators: true })
+    .orFail(() => new NotFoundError('Пользователь не найден'))
+    .then((user) => res.send(user))
+    .catch(next);
+};
 
 module.exports.editUserAvatar = (req, res, next) => {
   const { avatar } = req.body;
