@@ -34,6 +34,12 @@ app.use(requestLogger); // подключаем логгер запросов
 
 app.use(limiter);
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.use('/', require('./routes/signup'));
 app.use('/', require('./routes/signin'));
 
