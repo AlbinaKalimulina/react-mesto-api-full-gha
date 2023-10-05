@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.29.40
+IP 51.250.29.40
 
 Frontend https://albina.nomoredomainsrocks.ru
 
