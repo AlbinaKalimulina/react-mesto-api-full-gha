@@ -103,7 +103,7 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: 'https://albina.nomoredomainsrocks.ru',
+    baseUrl: 'https://api.albina.nomoredomainsrocks.ru',
 });
 
 export default api;

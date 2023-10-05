@@ -1,4 +1,4 @@
-export const BASE_URL = "https://albina.nomoredomainsrocks.ru";
+export const BASE_URL = "https://api.albina.nomoredomainsrocks.ru";
 
 
 function handleReply(res) {
