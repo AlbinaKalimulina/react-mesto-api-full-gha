@@ -103,12 +103,7 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: 'http://127.0.0.1:3000',
-    // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-69',
-    // headers: {
-    //     authorization: '961112be-ea9b-423a-bd3d-e30631a423a3',
-    //     'Content-Type': 'application/json'
-    // }
+    baseUrl: 'https://albina.nomoredomainsrocks.ru',
 });
 
 export default api;
