@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
@@ -16,8 +17,8 @@ const app = express();
 app.use(cors());
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // за 15 минут
-  max: 100, // можно совершить максимум 100 запросов с одного IP
+  windowMs: 15 * 60 * 1000,
+  max: 100,
 });
 
 app.use(helmet());

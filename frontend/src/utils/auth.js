@@ -1,6 +1,5 @@
 export const BASE_URL = "https://api.albina.nomoredomainsrocks.ru";
 
-
 function handleReply(res) {
   if (res.ok) {
     return res.json();
